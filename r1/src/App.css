@@ -38,3 +38,46 @@ margin-left: 27px;
 .loginPassword {
 margin-top: 30px;
 }
+
+edit {
+  background-color: #34D186;
+  margin-right: 10px;
+}
+
+.delete {
+  background-color: #EB4755;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;;
+  background-color: 'rgba (0, 0, 0, 0.7)';
+  z-index: 1000;
+}
+
+.modal-dialog {
+  position: relative;
+  height: 520px;
+  width: 350px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 20px 35px;
+  z-index: 1000;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.modal-title {
+  font-size: 20px;
+}

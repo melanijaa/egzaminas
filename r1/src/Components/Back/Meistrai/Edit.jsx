@@ -1,29 +1,54 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
+import getBase64 from "../../../Functions/getBase64";
 
-function Edit({ modalData, setModalData, setEditData }) {
-  const [name, setName] = useState("");
-  const [time, setTime] = useState("1");
-  const [newKm, setNewKm] = useState(0);
-  const [isBusy, setIsBusy] = useState("0");
+function Edit({
+  modalData,
+  setModalData,
+  setEditData,
+  setDeletePhoto,
+  setModalProduct,
+}) {
+  const [firstName, setFirstName] = useState();
+  const [lastName, setLastName] = useState();
+  const [jobTitle, setjobTitle] = useState();
+  const [jobPlace, setJobPlace] = useState();
+  const [city, setCity] = useState();
+  const fileInput = useRef();
+  const [photoPrint, setPhotoPrint] = useState(null);
+
+  const doPhoto = () => {
+    getBase64(fileInput.current.files[0])
+      .then((photo) => setPhotoPrint(photo))
+      .catch((_) => {
+        // tylim
+      });
+  };
+
+  const handleDeletePhoto = () => {
+    setDeletePhoto({ id: modalData.id });
+    setModalProduct((p) => ({ ...p, photo: null }));
+  };
 
   useEffect(() => {
     if (null === modalData) {
       return;
     }
-    setName(modalData.name);
-    setTime(modalData.time);
-    setNewKm(0);
-    setIsBusy(modalData.isBusy);
+    setFirstName(modalData.firstName);
+    setLastName(modalData.lastName);
+    setjobTitle(modalData.jobTitle);
+    setJobPlace(modalData.jobPlace);
+    setCity(modalData.city);
+    setPhotoPrint(modalData.photo);
   }, [modalData]);
 
   const handleEdit = () => {
     const data = {
-      name,
-      time,
-      km: Number(modalData.km) + Number(newKm),
-      newKm,
-      isBusy: isBusy ? "true" : false,
-      id: modalData.id,
+      firstName,
+      lastName,
+      jobTitle,
+      jobPlace,
+      city,
+      photoPrint,
     };
     setEditData(data);
     setModalData(null);
@@ -38,7 +63,7 @@ function Edit({ modalData, setModalData, setEditData }) {
       <div className="modal-dialog modal-dialog-centered">
         <div className="modal-content">
           <div className="modal-header">
-            <h5 className="modal-title">Edit</h5>
+            <h5 className="modal-title">Koreguoti</h5>
             <button
               type="button"
               className="close"
@@ -49,48 +74,88 @@ function Edit({ modalData, setModalData, setEditData }) {
           </div>
           <div className="modal-body">
             <div className="form-group">
-              <label>Registration code:</label>
+              <label>Pridėti meistrą</label>
+              <label>Vardas</label>
               <input
                 type="text"
                 className="form-control"
-                onChange={(e) => setName(e.target.value)}
-                value={name}
+                onChange={(e) => setFirstName(e.target.value)}
+                value={firstName}
               />
             </div>
             <div className="form-group">
-              <label>Last time used:</label>
+              <label>Pavardė</label>
               <input
-            type="date"
-            className="form-control"
-            onChange={(e) => setName(e.target.value)}
-            value={time}
+                type="text"
+                className="form-control"
+                onChange={(e) => setLastName(e.target.value)}
+                value={lastName}
               />
             </div>
             <div className="form-group">
-              <label>Edit kilometers:</label>
+              <label>Specializacija</label>
               <input
-                type="number"
-                className="form-row"
-                onChange={(e) => setNewKm(e.target.value)}
-                value={newKm}
+                type="text"
+                className="form-control"
+                onChange={(e) => setjobTitle(e.target.value)}
+                value={jobTitle}
               />
             </div>
-
+            <div className="form-group">
+              <label>Serviso pavadinimas</label>
+              <input
+                type="text"
+                className="form-control"
+                onChange={(e) => setJobPlace(e.target.value)}
+                value={jobPlace}
+              />
+            </div>
+            <div className="form-group">
+              <label>Miestas</label>
+              <input
+                type="text"
+                className="form-control"
+                onChange={(e) => setCity(e.target.value)}
+                value={city}
+              />
+            </div>
+            <div className="form-group">
+              <label>Photo</label>
+              <input
+                ref={fileInput}
+                type="file"
+                className="form-control"
+                onChange={doPhoto}
+              />
+              <small className="form-text text-muted">Upload Photo.</small>
+            </div>
+            {photoPrint ? (
+              <div className="photo-bin">
+                <img src={photoPrint} alt="nice" />
+              </div>
+            ) : null}
           </div>
           <div className="modal-footer">
             <button
               type="button"
-              className="btn btn-modalC btn-outline-secondary"
-              onClick={() => setModalData(null)}
+              className="btn btn-outline-secondary"
+              onClick={() => setModalProduct(null)}
             >
               Close
             </button>
             <button
               type="button"
-              className="btn btn-modal btn-outline-primary"
+              className="btn btn-outline-primary"
               onClick={handleEdit}
             >
               Save changes
+            </button>
+            <button
+              type="button"
+              className="btn btn-outline-danger"
+              onClick={handleDeletePhoto}
+            >
+              Remove Photo
             </button>
           </div>
         </div>

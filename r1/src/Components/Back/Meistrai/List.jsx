@@ -1,4 +1,3 @@
-// import { useState } from "react";
 
 import Ex from "./Ex";
 
@@ -7,6 +6,7 @@ function List({ exes, setDeleteData, setModalData }) {
     <div className="card-list">
       <div className="card-body-list">
         <ul className="list-group">
+        <h2>Meistrų sąrašas</h2>
           {exes
             ? exes.map((ex) => (
                 <Ex

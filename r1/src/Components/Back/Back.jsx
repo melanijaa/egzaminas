@@ -3,6 +3,7 @@ import Create from "./Meistrai/Create";
 import List from "./Meistrai/List";
 import { create, edit, read, remove } from "../../Functions/localStorage";
 import Edit from "./Meistrai/Edit";
+import NavBar from "./NavBar";
 
 function App() {
   const [lastUpdate, setLastUpdate] = useState(Date.now());
@@ -50,6 +51,7 @@ function App() {
     <>
       <div className="container">
         <div className="row">
+          <NavBar></NavBar>
           <div className="col-7 col-ml-12">
             <Create setCreateData={setCreateData}></Create>
             <List

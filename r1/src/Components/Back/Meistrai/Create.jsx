@@ -1,12 +1,29 @@
-import { useState} from "react";
+import { useState, useRef } from "react";
+import getBase64 from "../../../Functions/getBase64";
 
 function Create({ setCreateData }) {
-  const [name, setName] = useState();
+  const [firstName, setFirstName] = useState();
+  const [lastName, setLastName] = useState();
+  const [jobTitle, setjobTitle] = useState();
+  const [jobPlace, setJobPlace] = useState();
+  const [city, setCity] = useState();
+  const fileInput = useRef();
+  const [photoPrint, setPhotoPrint] = useState(null);
+
+  const doPhoto = () => {
+    getBase64(fileInput.current.files[0])
+      .then((photo) => setPhotoPrint(photo))
+      .catch((_) => {
+        // tylim
+      });
+  };
 
   const handleCreate = () => {
-    const data = { name };
+    const data = { firstName };
     setCreateData(data);
-    setName();
+    setFirstName();
+    setPhotoPrint(null);
+    fileInput.current.value = null;
   };
 
   return (
@@ -18,8 +35,8 @@ function Create({ setCreateData }) {
           <input
             type="text"
             className="form-control"
-            onChange={(e) => setName(e.target.value)}
-            value={name}
+            onChange={(e) => setFirstName(e.target.value)}
+            value={firstName}
           />
         </div>
         <div className="form-group">
@@ -27,8 +44,8 @@ function Create({ setCreateData }) {
           <input
             type="text"
             className="form-control"
-            onChange={(e) => setName(e.target.value)}
-            value={name}
+            onChange={(e) => setLastName(e.target.value)}
+            value={lastName}
           />
         </div>
         <div className="form-group">
@@ -36,37 +53,43 @@ function Create({ setCreateData }) {
           <input
             type="text"
             className="form-control"
-            onChange={(e) => setName(e.target.value)}
-            value={name}
+            onChange={(e) => setjobTitle(e.target.value)}
+            value={jobTitle}
           />
         </div>
-        <div className="form-group">
-          <label>Nuotrauka</label>
-          <input
-            type="text"
-            className="form-control"
-            onChange={(e) => setName(e.target.value)}
-            value={name}
-          />
+        <label>Serviso pavadinimas</label>
+        <input
+          type="text"
+          className="form-control"
+          onChange={(e) => setJobPlace(e.target.value)}
+          value={jobPlace}
+        />
+      </div>
+      <div className="form-group">
+      <label>Miestas</label>
+        <input
+          type="text"
+          className="form-control"
+          onChange={(e) => setCity(e.target.value)}
+          value={city}
+        />
+      </div>
+      <div className="form-group">
+        <label>Nuotrauka</label>
+        <input
+          ref={fileInput}
+          type="file"
+          className="form-control"
+          onChange={doPhoto}
+        />
+        <small className="form-text text-muted">Įkelti Nuotrauka</small>
+      </div>
+      {photoPrint ? (
+        <div className="photo-bin">
+          <img src={photoPrint} alt="nice" />
         </div>
-        <div className="form-group">
-          <label>Serviso pavadinimas</label>
-          <input
-            type="text"
-            className="form-control"
-            onChange={(e) => setName(e.target.value)}
-            value={name}
-          />
-        </div>
-        <div className="form-group">
-          <label>Miestas</label>
-          <input
-            type="text"
-            className="form-control"
-            onChange={(e) => setName(e.target.value)}
-            value={name}
-          />
-        </div>
+      ) : null}
+      <div className="form-group">
         <button
           type="button"
           className="btn2 btn-outline-primary"

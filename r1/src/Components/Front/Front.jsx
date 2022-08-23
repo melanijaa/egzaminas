@@ -1,7 +1,11 @@
+import Nav from "./Nav";
+
 function Front() {
-    return (
-        <div>Front</div>
-    )
+  return (
+    <>
+      <Nav></Nav>
+    </>
+  );
 }
 
 export default Front;

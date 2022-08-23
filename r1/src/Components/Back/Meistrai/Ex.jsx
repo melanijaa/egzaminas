@@ -1,4 +1,5 @@
 function Ex({ ex, setDeleteData, setModalData }) {
+
   const handleDelete = () => {
     setDeleteData(ex);
   };
@@ -11,30 +12,27 @@ function Ex({ ex, setDeleteData, setModalData }) {
     <div className="list-group-item">
       <div className="item">
         <div className="content">
-          <span className="con">{ex.id}</span>
-          <span className="con">{ex.name}</span>
-          <span className="con">{ex.time}</span>
-          <span className="con">{ex.km}km</span>
-          <span className="con">
-            {ex.isBusy ? (
-              <div className="uzimtas">Busy</div>
-            ) : (
-              <div className="laisvas">Available</div>
-            )}
-          </span>
-        </div>
+          <div>{ex.firstName}</div>
+          </div>
+      <div className="item">
+        <div className="content">
+          <div>{ex.lastName}</div>
+          </div>
+          </div>
         <div className="buttons">
           <button
             type="button"
             className="btn btn-outline-success ml-2 edit"
             onClick={handleEdit}
           >
+            Koreguoti
           </button>
           <button
             type="button"
             className="btn btn-outline-danger ml-2 delete"
             onClick={handleDelete}
           >
+            Ištrinti
           </button>
         </div>
       </div>
