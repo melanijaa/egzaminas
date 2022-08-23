@@ -84,7 +84,7 @@ function LoginPage() {
   return (
     <div className="loginPage">
       <div className="loginForm">
-        <div>
+        <div className="loginName">
           name:{" "}
           <input
             type="text"
@@ -92,7 +92,7 @@ function LoginPage() {
             onChange={(e) => setUser(e.target.value)}
           ></input>
         </div>
-        <div>
+        <div className="loginPassword">
           password:{" "}
           <input
             type="password"

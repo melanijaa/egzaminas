@@ -1,0 +1,312 @@
+.list-group-item {
+  .item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    .content {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    .buttons {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+    b {
+      margin-right: 7px;
+    }
+    i {
+      margin-left: 7px;
+    }
+  }
+}
+
+.modal {
+  display: block;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+body,
+body * {
+  margin: 0;
+  padding: 0;
+  vertical-align: top;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  width: 100%;
+  height: 86.4px;
+  z-index: 2;
+  padding: 0 24px;
+}
+
+.header .logo {
+  display: inline-block;
+  margin-left: 0px;
+  margin-right: 16px;
+  padding: 24px 16px 16px;
+}
+
+.header a {
+  line-height: 24px;
+  text-decoration: none;
+  color: #2f313f;
+  font-size: 18px;
+  padding: 26px 16px 27px;
+}
+
+.header a:hover {
+  background-color: #e9eaee;
+}
+
+.main {
+  position: relative;
+  display: flex;
+  background-color: #249e64;
+  background-image: url(./images/kolt.png);
+  background-repeat: no-repeat;
+  background-position: right;
+}
+
+.text {
+  margin-left: 14px;
+  padding: 0 24px;
+}
+
+h1 {
+  color: #fff;
+  font-size: 72px;
+  margin: 64px 0px 32px;
+}
+
+p {
+  color: #fff;
+  font-size: 18px;
+  line-height: 27px;
+  margin: 18px 0px;
+}
+
+.appStore {
+  margin: 48px 0px 40px;
+  display: inline-block;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  background-color: #f4f4f6;
+  padding: 42px 24px 40px;
+  justify-content: center;
+  align-items: center;
+}
+
+h2 {
+  font-size: 28px;
+  margin: 0px 0px 24px;
+}
+
+.sidebarA {
+  font-size: 16px;
+  text-decoration: none;
+  color: #2f313f;
+}
+
+.FaLeaf {
+  color: green;
+  margin-bottom: 20px;
+  font-size: 30px;
+}
+
+.card-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 42px 24px 20px;
+  margin-top: 20px;
+}
+
+.text {
+  font-size: 35px;
+}
+
+.textP {
+  color: grey;
+}
+
+.title {
+  display: flex;
+  font-weight: 700;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  background-image: linear-gradient(
+      0deg,
+      rgba(237, 236, 243, 0.46),
+      rgba(237, 236, 243, 0.46)
+    ),
+    url(./images/kolt-scooter.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 700px;
+}
+
+.card-body {
+  height: 520px;
+  width: 350px;
+  background-color: rgba(255, 255, 255, 0.13);
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+  padding: 20px 35px;
+  position: absolute;
+  top: 100px;
+  left: 50px;
+}
+
+.card-body-list {
+  height: 520px;
+  width: 750px;
+  background-color: rgba(255, 255, 255, 0.13);
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+  padding: 50px 35px;
+  position: absolute;
+  top: 1095px;
+  left: 450px;
+}
+
+label {
+  display: block;
+  margin-top: 30px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+input {
+  display: block;
+  height: 50px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.07);
+  border-radius: 3px;
+  padding: 0 10px;
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.btn2 {
+  margin-top: 50px;
+  width: 100%;
+  background-color: #FFB200;
+  color: #fff;
+  padding: 15px 0;
+  font-size: 10px;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+  border: solid 1px #FFB200 ;
+}
+
+.btn {
+  color: #fff;
+  padding: 8px 10px;
+  font-size: 14px;
+  border-radius: 33px;
+  border: none;
+}
+
+.edit {
+  background-color: #34D186;
+  margin-right: 10px;
+}
+
+.delete {
+  background-color: #EB4755;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;;
+  background-color: 'rgba (0, 0, 0, 0.7)';
+  z-index: 1000;
+}
+
+.modal-dialog {
+  position: relative;
+  height: 520px;
+  width: 350px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 20px 35px;
+  z-index: 1000;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.modal-title {
+  font-size: 20px;
+}
+
+.close {
+  border: none;
+  background-color: transparent;
+  font-size: 30px;
+  position: absolute;
+  top: 7px;
+  right: 17px;
+}
+
+.modal-footer {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.btn-modalC {
+  background-color: #5B68F6;
+}
+
+.btn-modal {
+  background-color: #34D186;
+}
+
+.con {
+  margin-bottom: 10px;
+  padding: 14px 20px;
+  margin-right: 10px;
+
+}
