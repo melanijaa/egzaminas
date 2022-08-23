@@ -17,7 +17,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-      <Route
+        <Route
           path="/"
           element={
             <RequireAuth role="user">
