@@ -47,7 +47,7 @@ const doAuth = function (req, res, next) {
   ) {
     next();
   } else {
-    // fron
+    // front
     const sql = `
         SELECT
         name, role
