@@ -12,13 +12,17 @@ function Ex({ ex, setDeleteData, setModalData }) {
     <div className="list-group-item">
       <div className="item">
         <div className="content">
-          <div>{ex.firstName}</div>
-          </div>
-      <div className="item">
-        <div className="content">
-          <div>{ex.lastName}</div>
-          </div>
-          </div>
+          <div>Vardas: {ex.firstName}</div>
+          <div>Pavardė: {ex.lastName}</div>
+          <div>Specializacija: {ex.jobTitle}</div>
+          <div>Serviso pavadinimas: {ex.jobPlace}</div>
+          <div>Miestas: {ex.jobPlace}</div>
+          <div>Meistro nuotrauka: {ex.photo ? (
+            <div className="photo-bin">
+              <img src={ex.photo} alt={ex.title} />
+            </div>
+          ) : null}</div>
+    </div>
         <div className="buttons">
           <button
             type="button"

@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 import getBase64 from "../../../Functions/getBase64";
 
 function Create({ setCreateData }) {
+
   const [firstName, setFirstName] = useState();
   const [lastName, setLastName] = useState();
   const [jobTitle, setjobTitle] = useState();
@@ -19,9 +20,20 @@ function Create({ setCreateData }) {
   };
 
   const handleCreate = () => {
-    const data = { firstName };
+    const data = {
+      firstName,
+      lastName,
+      jobTitle,
+      jobPlace,
+      city,
+      photo: photoPrint
+    };
     setCreateData(data);
-    setFirstName();
+    setFirstName("");
+    setLastName("");
+    setjobTitle("");
+    setJobPlace("");
+    setCity("");
     setPhotoPrint(null);
     fileInput.current.value = null;
   };
